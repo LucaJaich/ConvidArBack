@@ -3,7 +3,7 @@ const pool = require("../../config/database");
 module.exports = {
   getFoundations: callback => {
     pool.query(
-      `SELECT f.id_fundacion, f.nombre_fundacion, f.proposito, f.dinero_total, m.id_meta, m.monto, m.estado 
+      `SELECT f.id_fundacion, f.foto,f.nombre_fundacion, f.proposito, f.dinero_total, m.id_meta, m.monto, m.estado 
       FROM metas m 
       LEFT OUTER JOIN fundacion f ON m.id_fundacion = f.id_fundacion WHERE m.estado = ?`,
       ["activa"],
